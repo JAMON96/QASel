@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/QASel.iml" filepath="$PROJECT_DIR$/QASel.iml" />
+      <module fileurl="file://$PROJECT_DIR$/QASel-admin/QASel-admin.iml" filepath="$PROJECT_DIR$/QASel-admin/QASel-admin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/QASel-common/QASel-common.iml" filepath="$PROJECT_DIR$/QASel-common/QASel-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/QASel-user/QASel-user.iml" filepath="$PROJECT_DIR$/QASel-user/QASel-user.iml" />
+    </modules>
+  </component>
+</project>
