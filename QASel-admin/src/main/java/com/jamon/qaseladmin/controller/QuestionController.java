@@ -21,20 +21,20 @@ import javax.validation.Valid;
 public class QuestionController {
 
     @Autowired
-    private QuestionService QuestionService;
+    private QuestionService questionService;
 
     @PostMapping("getAllquestion")
     public JsonData getAllquestion(@Valid @RequestBody GetAllquestionRequest request){
-        return QuestionService.getAllquestion(request);
+        return questionService.getAllquestion(request);
     }
 
     @PostMapping("addquestion")
     public JsonData addQuestion(@Valid @RequestBody AddQuestionRequest request){
-        return QuestionService.addQuestion(request);
+        return questionService.addQuestion(request);
     }
 
     @PostMapping("deletequestion")//todo:关联答案表做删除
     public JsonData deleteQuestion(@Valid @RequestBody GetIdRequest request){
-        return QuestionService.deleteQuestion(request);
+        return questionService.deleteQuestion(request);
     }
 }

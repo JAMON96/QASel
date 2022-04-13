@@ -41,8 +41,8 @@
           targetProject:设置生成PO类生成位置的工程名称
           targetPackage="com.it.pojo":PO生成的包位置
         -->
-        <javaModelGenerator targetPackage="com.jamon.qaseladmin.model"
-                            targetProject="D:\Javaproject\QASel\QASel-admin\src\main\java">
+        <javaModelGenerator targetPackage="com.jamon.qaseluser.model"
+                            targetProject="D:\Javaproject\QASel\QASel-user\src\main\java">
             <!-- 1）enableSubPackages:是否让schema作为包的后缀 -->
             <property name="enableSubPackages" value="true" />
             <!-- 2）设置从数据库返回的值被清理前后的空格 -->
@@ -54,7 +54,7 @@
                 targetPackage="com.it.mapper":mapper生成的包位置
          -->
         <sqlMapGenerator targetPackage="mapper"
-                         targetProject="D:\Javaproject\QASel\QASel-admin\src\main\resources">
+                         targetProject="D:\Javaproject\QASel\QASel-user\src\main\resources">
             <!-- 1）enableSubPackages:是否让schema作为包的后缀 -->
             <property name="enableSubPackages" value="false" />
         </sqlMapGenerator>
@@ -63,14 +63,14 @@
                 targetPackage="com.it.mapper":xml文件生成的包位置
          -->
         <javaClientGenerator type="XMLMAPPER"
-                             targetPackage="com.jamon.qaseladmin.mapper"
-                             targetProject="D:\Javaproject\QASel\QASel-admin\src\main\java">
+                             targetPackage="com.jamon.qaseluser.mapper"
+                             targetProject="D:\Javaproject\QASel\QASel-user\src\main\java">
             <!-- 1）enableSubPackages:是否让schema作为包的后缀 -->
             <property name="enableSubPackages" value="false" />
         </javaClientGenerator>
 
         <!-- 8、配置将哪些表进行****设置 -->
-        <table tableName="qasel_user"
+        <table tableName="question_text"
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false"></table>
