@@ -8,10 +8,7 @@ import com.jamon.qaseladmin.model.request.GetAnswerRequest;
 import com.jamon.qaseladmin.service.AnswerService;
 import com.jamon.qaselcommon.util.JsonData;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
@@ -22,6 +19,7 @@ import javax.validation.Valid;
  */
 @RestController
 @RequestMapping("/admin/answer_manage/v1")
+@CrossOrigin
 public class AnswerController {
 
     @Autowired

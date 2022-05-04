@@ -14,8 +14,8 @@ import javax.validation.constraints.Min;
 public class GetAllquestionRequest {
 
     @Min(1)
-    private int pageNum = 1;
+    private int pageNum;
 
     @Min(10)
-    private int pageSize = 10;
+    private int pageSize;
 }

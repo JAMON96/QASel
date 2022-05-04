@@ -12,7 +12,7 @@ import com.jamon.qaseluser.model.request.SearchQuestionRequest;
 
 public interface QuestionService {
 
-    JsonData getAllquestion(GetAllquestionRequest request);
+    JsonData getAllquestion();
 
     JsonData searchQuestion(SearchQuestionRequest request);
 }

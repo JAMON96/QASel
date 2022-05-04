@@ -70,7 +70,7 @@
         </javaClientGenerator>
 
         <!-- 8、配置将哪些表进行****设置 -->
-        <table tableName="question_text"
+        <table tableName="answer_text"
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false"></table>

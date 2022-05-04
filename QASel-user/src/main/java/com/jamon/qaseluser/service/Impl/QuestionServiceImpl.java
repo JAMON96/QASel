@@ -5,6 +5,7 @@ import com.github.pagehelper.PageInfo;
 import com.jamon.qaselcommon.util.JsonData;
 import com.jamon.qaseluser.mapper.QuestionTextMapper;
 import com.jamon.qaseluser.model.QuestionText;
+import com.jamon.qaseluser.model.QuestionVO;
 import com.jamon.qaseluser.model.request.GetAllquestionRequest;
 import com.jamon.qaseluser.model.request.SearchQuestionRequest;
 import com.jamon.qaseluser.service.QuestionService;
@@ -30,21 +31,26 @@ public class QuestionServiceImpl implements QuestionService {
 //    private AnswerTextMapper answerTextMapper;
 
     @Override
-    public JsonData getAllquestion(GetAllquestionRequest request) {
-        PageHelper.startPage(request.getPageNum(),request.getPageSize());
+    public JsonData getAllquestion() {
+//        PageHelper.startPage(request.getPageNum(),request.getPageSize());
         List<QuestionText> questionList = questionTextMapper.getAllQuestion();
-        PageInfo<QuestionText> pageInfo = new PageInfo(questionList);
-        HashMap<String, Object> pageMap = new HashMap<>();
-        pageMap.put("totalPage",pageInfo.getPages());
-        pageMap.put("totalSize",pageInfo.getTotal());
-        pageMap.put("list",questionList);
+//        PageInfo<QuestionText> pageInfo = new PageInfo<>(questionList);
+//        PageInfo pageInfo = new PageInfo(questionList);
+//        HashMap<String, Object> pageMap = new HashMap<>();
+//        pageMap.put("totalPage",pageInfo.getPages());
+//        pageMap.put("totalSize",pageInfo.getTotal());
+//        pageMap.put("list",questionList);
 
-        return JsonData.buildSuccess(pageMap);
+        return JsonData.buildSuccess(questionList);
     }
 
     @Override
     public JsonData searchQuestion(SearchQuestionRequest request) {
-        List<QuestionText> questionLists = questionTextMapper.searchQuestion(request);
+        List<QuestionVO> questionLists = questionTextMapper.searchQuestion(request);
+        for (QuestionVO questionVO : questionLists) {
+            questionVO.setValue(questionVO.getLabel());
+        }
+
         return JsonData.buildSuccess(questionLists);
     }
 }

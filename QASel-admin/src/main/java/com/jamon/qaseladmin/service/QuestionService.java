@@ -3,6 +3,7 @@ package com.jamon.qaseladmin.service;
 import com.jamon.qaseladmin.model.request.AddQuestionRequest;
 import com.jamon.qaseladmin.model.request.GetAllquestionRequest;
 import com.jamon.qaseladmin.model.request.GetIdRequest;
+import com.jamon.qaseladmin.model.request.SearchQuestionRequest;
 import com.jamon.qaselcommon.util.JsonData;
 
 /**
@@ -13,10 +14,12 @@ import com.jamon.qaselcommon.util.JsonData;
 
 public interface QuestionService {
 
-    JsonData getAllquestion(GetAllquestionRequest request);
+    JsonData getAllquestion();
 
     JsonData addQuestion(AddQuestionRequest request);
 
     JsonData deleteQuestion(GetIdRequest request);
+
+    JsonData searchQuestion(SearchQuestionRequest request);
 
 }

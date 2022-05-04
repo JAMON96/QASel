@@ -7,6 +7,7 @@ import com.jamon.qaseladmin.model.QuestionText;
 import com.jamon.qaseladmin.model.request.AddQuestionRequest;
 import com.jamon.qaseladmin.model.request.GetAllquestionRequest;
 import com.jamon.qaseladmin.model.request.GetIdRequest;
+import com.jamon.qaseladmin.model.request.SearchQuestionRequest;
 import com.jamon.qaseladmin.service.QuestionService;
 import com.jamon.qaselcommon.util.JsonData;
 import org.springframework.stereotype.Service;
@@ -34,16 +35,16 @@ public class questionServiceImpl implements QuestionService {
 
 
     @Override
-    public JsonData getAllquestion(GetAllquestionRequest request) {
-        PageHelper.startPage(request.getPageNum(),request.getPageSize());
+    public JsonData getAllquestion() {
+//        PageHelper.startPage(request.getPageNum(),request.getPageSize());
         List<QuestionText> questionList = questionTextMapper.getAllQuestion();
-        PageInfo<QuestionText> pageInfo = new PageInfo(questionList);
-        HashMap<String, Object> pageMap = new HashMap<>();
-        pageMap.put("totalPage",pageInfo.getPages());
-        pageMap.put("totalSize",pageInfo.getTotal());
-        pageMap.put("list",questionList);
+//        PageInfo<QuestionText> pageInfo = new PageInfo(questionList);
+//        HashMap<String, Object> pageMap = new HashMap<>();
+//        pageMap.put("totalPage",pageInfo.getPages());
+//        pageMap.put("totalSize",pageInfo.getTotal());
+//        pageMap.put("list",questionList);
 
-        return JsonData.buildSuccess(pageMap);
+        return JsonData.buildSuccess(questionList);
     }
 
     @Override
@@ -55,13 +56,19 @@ public class questionServiceImpl implements QuestionService {
     @Override
     public JsonData deleteQuestion(GetIdRequest request) {
         if (null == questionTextMapper.selectByPrimaryKey(request.getId())){
-            return JsonData.buildSuccess("当前问题不存在，请刷新后重试");
+            return JsonData.buildSuccess("0");
         }
         List<AnswerText> answerList = answerTextMapper.selectAllByQid(request.getId());
         if (answerList.size() != 0){
-            return JsonData.buildSuccess("当前问题下存在答案，不能删除！");
+            return JsonData.buildSuccess("0");
         }
         int i = questionTextMapper.deleteByPrimaryKey(request.getId());
         return JsonData.buildSuccess(i);
+    }
+
+    @Override
+    public JsonData searchQuestion(SearchQuestionRequest request) {
+        List<QuestionText> questionLists = questionTextMapper.searchQuestion(request);
+        return JsonData.buildSuccess(questionLists);
     }
 }

@@ -5,10 +5,7 @@ import com.jamon.qaseluser.model.request.GetAllquestionRequest;
 import com.jamon.qaseluser.model.request.SearchQuestionRequest;
 import com.jamon.qaseluser.service.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
@@ -19,14 +16,15 @@ import javax.validation.Valid;
  */
 @RestController
 @RequestMapping("/user/question_manage/v1")
+@CrossOrigin
 public class QuestionController {
 
     @Autowired
     private QuestionService questionService;
 
     @PostMapping("getAllquestion")
-    public JsonData getAllquestion(@Valid @RequestBody GetAllquestionRequest request){
-        return questionService.getAllquestion(request);
+    public JsonData getAllquestion(){
+        return questionService.getAllquestion();
     }
 
     @PostMapping("searchquestion")

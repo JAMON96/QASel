@@ -1,4 +1,4 @@
-package com.jamon.qaseluser.model.request;
+package com.jamon.qaseladmin.model.request;
 
 import lombok.Data;
 
@@ -10,7 +10,5 @@ import lombok.Data;
 
 @Data
 public class SearchQuestionRequest {
-
     private String question;
-
 }
